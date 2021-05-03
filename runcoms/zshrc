@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+#
 #
 # Executes commands at the start of an interactive session.
 #
@@ -11,3 +18,67 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+ [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(direnv hook zsh)"
+
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+# fdfind is linked here as fd
+PATH=~/.local/bin:$PATH
+
+# KUBERNETES
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+source <(flux completion zsh)
+source <(kustomize completion zsh)
+alias k=kubectl
+alias kcnc="kubectl run --rm --restart Never --stdin --tty busybox --image arm64v8/busybox -- nc -z -v -w1 "
+alias kcwget="kubectl run --rm --restart Never --stdin --tty busybox --image arm64v8/busybox -- wget --spider --timeout=1 "
+alias s3="s3cmd --no-ssl --host=ceph-rgw.fritz.box --host-bucket="
+alias exdo='export do=("--dry-run=client" "--output=yaml")'
+
+source <(yq shell-completion zsh)
+source <(chezmoi completion zsh)
+eval $(thefuck --alias)
+
+# MIXED ALIASES
+alias myip="curl http://ipecho.net/plain; echo"
+alias fuck="fuck -y"
+alias vim="nvim"
+alias v="nvim"
+alias ll='exa -l'
+alias lll='exa -l | less'
+alias lla='exa -la'
+alias llt='exa -T'
+alias lltr='exa -l -s modified'
+alias llfu='exa -bghHliS'
+alias ping='ping -c3'
+alias ap='ansible-playbook'
+alias open='gio open'
+alias clip='gpaste-client'
+alias clipo='gpaste-client --oneline | bat'
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias f='fzf --preview "bat --style=full --color \"always\" {}" --preview-window "~3"'
+alias vf='nvim -o `f`'
+export FZF_DEFAULT_OPTS='--height 80% --layout=reverse --border --extended'
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+# >>> conda initialize >>>
+## !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/eneuhauss/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/eneuhauss/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/eneuhauss/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/eneuhauss/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
