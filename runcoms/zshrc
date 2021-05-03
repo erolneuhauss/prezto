@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+#
 #
 # Executes commands at the start of an interactive session.
 #
@@ -11,3 +18,121 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+HISTFILE="${HISTFILE:-${ZDOTDIR:-$HOME}/.zsh_history}"  # The path to the history file.
+HISTSIZE=100000                   # The maximum number of events to save in the internal history.
+SAVEHIST=100000                   # The maximum number of events to save in the history file.
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+ [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(direnv hook zsh)"
+
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+PATH=~/.local/bin:~/Library/Python/3.8/bin/:$PATH
+# Curl 7.80
+PATH="/usr/local/opt/curl/bin:$PATH"
+# GNU implementation
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+# bash-language-server
+PATH="/usr/local/Cellar/node/16.11.1/bin:$PATH"
+# java
+PATH="/usr/local/opt/openjdk/bin:$PATH"
+CPPFLAGS="-I/usr/local/opt/openjdk/include"
+# lazydocker
+PATH="/usr/local/Cellar/lazydocker/0.12/bin:$PATH"
+# openssl
+#PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+PATH="/usr/local/opt/openssl@3/bin:$PATH"
+
+# https://faun.pub/switch-easily-between-multiple-kubernetes-version-on-macos-9d61b9bc8287
+# switch between cli tool versions with asdf
+# asdf plugin add kubectl && asdf install kubectl 1.18.19 && asdf global kubectl 1.18.19
+source /usr/local/opt/asdf/libexec/asdf.sh
+source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+
+# KUBERNETES
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+# https://github.com/kubernetes/minikube/issues/11348
+source <(minikube completion zsh | sed --expression='s/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g')
+export KUBECONFIG="${HOME}/.kube/config"
+
+# source <(flux completion zsh)
+# source <(kustomize completion zsh)
+alias k=kubectl
+alias kctx=kubectx
+alias kns=kubens
+alias kcnc="kubectl run --rm --restart Never --stdin --tty busybox --image busybox -- nc -z -v -w1 "
+alias kcwget="kubectl run --rm --restart Never --stdin --tty busybox --image busybox -- wget --spider --timeout=1 "
+alias s3="s3cmd --no-ssl --host=ceph-rgw.fritz.box --host-bucket="
+alias exdo='export do=("--dry-run=client" "--output=yaml")'
+
+source <(yq shell-completion zsh)
+source <(chezmoi completion zsh)
+eval $(thefuck --alias)
+
+# MIXED ALIASES
+alias ap='ansible-playbook'
+# GNOME-specific
+# alias clip='gpaste-client'
+# alias clipo='gpaste-client --oneline | bat'
+alias lg="lazygit"
+alias fuck="fuck -y"
+alias ll='exa -l'
+alias lla='exa -la'
+alias llfu='exa -bghHliS'
+alias lll='exa -l | less'
+alias llt='exa -T'
+alias lltr='exa -l -s modified'
+alias myip="curl http://ipecho.net/plain; echo"
+alias mo='molecule'
+alias ping='ping -c3'
+alias vim="lvim"
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+bindkey "ç" fzf-cd-widget
+export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git' --exclude 'node_modules'"
+export FZF_DEFAULT_OPTS="
+--layout=reverse
+--info=inline
+--height=80%
+--multi
+--preview-window "~3"
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always --theme=Nord {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
+--prompt='∼ ' --pointer='▶' --marker='✓'
+--bind '?:toggle-preview'
+--bind 'ctrl-a:select-all'
+--bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
+--bind 'ctrl-e:execute(echo {+} | xargs -o lvim)'
+--bind 'ctrl-v:execute(code {+})'
+"
+alias f='fzf'
+alias vf='lvim -o `f`'
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# zsh doesn't have a builtin help command
+function help(){
+    bash -c "help $@"
+}
+
+bm() {
+  local bookmarks_path=~/Library/Application\ Support/Google/Chrome/Default/Bookmarks
+  local jq_script='def ancestors: while(. | length >= 2; del(.[-1,-2])); . as $in | paths(.url?) as $key | $in | getpath($key) | {name,url, path: [$key[0:-2] | ancestors as $a | $in | getpath($a) | .name?] | reverse | join("/") } | .path + "/" + .name + "\t" + .url'
+  jq -r $jq_script < "$bookmarks_path" \
+  | sed -E $'s/(.*)\t(.*)/\\1\t\x1b[36m\\2\x1b[m/g' \
+  | fzf --ansi \
+  | cut -d$'\t' -f2 \
+  | xargs open
+}
