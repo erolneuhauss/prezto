@@ -85,3 +85,13 @@ export FZF_DEFAULT_OPTS='--height 80% --layout=reverse --border --extended'
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/2.2.15/gems/vagrant-2.2.15/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
+
+# zsh doesn't have a builtin help command
+function help(){
+    bash -c "help $@"
+}
