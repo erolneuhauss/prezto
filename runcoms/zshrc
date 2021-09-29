@@ -44,21 +44,22 @@ source <(chezmoi completion zsh)
 eval $(thefuck --alias)
 
 # MIXED ALIASES
-alias myip="curl http://ipecho.net/plain; echo"
-alias fuck="fuck -y"
-alias vim="nvim"
-alias v="nvim"
-alias ll='exa -l'
-alias lll='exa -l | less'
-alias lla='exa -la'
-alias llt='exa -T'
-alias lltr='exa -l -s modified'
-alias llfu='exa -bghHliS'
-alias ping='ping -c3'
 alias ap='ansible-playbook'
-alias open='gio open'
 alias clip='gpaste-client'
 alias clipo='gpaste-client --oneline | bat'
+alias fuck="fuck -y"
+alias ll='exa -l'
+alias lla='exa -la'
+alias llfu='exa -bghHliS'
+alias lll='exa -l | less'
+alias llt='exa -T'
+alias lltr='exa -l -s modified'
+alias myip="curl http://ipecho.net/plain; echo"
+alias mo='molecule'
+alias open='gio open'
+alias ping='ping -c3'
+alias v="nvim"
+alias vim="nvim"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
