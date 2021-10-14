@@ -34,6 +34,8 @@ source <(helm completion zsh)
 source <(flux completion zsh)
 source <(kustomize completion zsh)
 alias k=kubectl
+alias kctx=kubectx
+alias kns=kubens
 alias kcnc="kubectl run --rm --restart Never --stdin --tty busybox --image arm64v8/busybox -- nc -z -v -w1 "
 alias kcwget="kubectl run --rm --restart Never --stdin --tty busybox --image arm64v8/busybox -- wget --spider --timeout=1 "
 alias s3="s3cmd --no-ssl --host=ceph-rgw.fritz.box --host-bucket="
