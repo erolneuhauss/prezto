@@ -96,7 +96,7 @@ alias vim="lvim"
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "ç" fzf-cd-widget
-export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git' --exclude 'node_modules'"
+export FZF_DEFAULT_COMMAND="fd --hidden --no-ignore-vcs --follow --exclude '.git' --exclude 'node_modules'"
 export FZF_DEFAULT_OPTS="
 --layout=reverse
 --info=inline
