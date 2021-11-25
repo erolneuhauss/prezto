@@ -54,10 +54,7 @@ source /usr/local/opt/asdf/libexec/asdf.sh
 source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
 # KUBERNETES
-for kube_yaml in ${HOME}/.kube/*.kube.yaml; do
- KUBECONFIG=$KUBECONFIG:$kube_yaml
-done
-export KUBECONFIG
+export KUBECONFIG="${HOME}/.kube/config"
 
 source <(kubectl completion zsh)
 source <(helm completion zsh)
