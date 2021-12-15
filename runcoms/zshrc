@@ -35,7 +35,7 @@ PATH="/usr/local/opt/curl/bin:$PATH"
 # GNU implementation
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # bash-language-server
-PATH="/usr/local/Cellar/node/16.11.1/bin:$PATH"
+PATH="/usr/local/Cellar/node/17.2.0/bin:$PATH"
 # java
 PATH="/usr/local/opt/openjdk/bin:$PATH"
 CPPFLAGS="-I/usr/local/opt/openjdk/include"
@@ -46,6 +46,8 @@ PATH="/usr/local/Cellar/lazydocker/0.12/bin:$PATH"
 PATH="/usr/local/opt/openssl@3/bin:$PATH"
 # gnu grep
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+# coreutils
+PATH="/usr/local/opt/coreutils/bin:$PATH"
 
 # https://faun.pub/switch-easily-between-multiple-kubernetes-version-on-macos-9d61b9bc8287
 # switch between cli tool versions with asdf
