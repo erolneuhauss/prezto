@@ -62,6 +62,6 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
-  fortune erol | lolcat
-fi
+# if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
+#   fortune erol | lolcat
+# fi
