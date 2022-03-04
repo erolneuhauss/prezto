@@ -63,15 +63,42 @@ source <(helm completion zsh)
 # https://github.com/kubernetes/minikube/issues/11348
 source <(minikube completion zsh | sed --expression='s/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g')
 
+#EKS https://eksctl.io/introduction/#zsh
+# mkdir -p ~/.zsh/completion/
+# eksctl completion zsh > ~/.zsh/completion/_eksctl
+fpath=($fpath ~/.zsh/completion)
+autoload -U compinit
+compinit
+
 # source <(flux completion zsh)
 # source <(kustomize completion zsh)
 alias k=kubectl
 alias kctx=kubectx
+alias kprod="kubectx next-prod"
+alias kstage="kubectx next-stage"
+alias kinfra="kubectx next-infra"
+alias kkind="kubectx kind-stage"
 alias kns=kubens
 alias kcnc="kubectl run --rm --restart Never --stdin --tty busybox --image busybox -- nc -z -v -w1 "
 alias kcwget="kubectl run --rm --restart Never --stdin --tty busybox --image busybox -- wget --spider --timeout=1 "
 alias s3="s3cmd --no-ssl --host=ceph-rgw.fritz.box --host-bucket="
 alias exdo='export do=("--dry-run=client" "--output=yaml")'
+
+function kube-toggle() {
+  if (( ${+POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND} )); then
+    unset POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND
+  else
+    POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|oc|istioctl|kogito|k9s|helmfile|fluxctl|stern'
+  fi
+  p10k reload
+  if zle; then
+    zle push-input
+    zle accept-line
+  fi
+}
+
+zle -N kube-toggle
+bindkey '^]' kube-toggle  # ctrl-] to toggle kubecontext in powerlevel10k prompt
 
 source <(yq shell-completion zsh)
 source <(chezmoi completion zsh)
