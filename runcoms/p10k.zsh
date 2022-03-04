@@ -1174,14 +1174,14 @@
   #
     typeset -g POWERLEVEL9K_KUBECONTEXT_INFRA_FOREGROUND=3
     typeset -g POWERLEVEL9K_KUBECONTEXT_INFRA_VISUAL_IDENTIFIER_EXPANSION='😡'
-    typeset -g POWERLEVEL9K_KUBECONTEXT_INFRA_CONTENT_EXPANSION='${P9K_CONTENT}😡'
+    typeset -g POWERLEVEL9K_KUBECONTEXT_INFRA_CONTENT_EXPANSION='${P9K_CONTENT} 😡'
 
-    typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_FOREGROUND=1
+    typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_FOREGROUND=196
     typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_VISUAL_IDENTIFIER_EXPANSION='☠️ '
     typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_CONTENT_EXPANSION='${P9K_CONTENT} ☠️ '
 
     typeset -g POWERLEVEL9K_KUBECONTEXT_STAGE_FOREGROUND=13
-    typeset -g POWERLEVEL9K_KUBECONTEXT_STAGE_VISUAL_IDENTIFIER_EXPANSION='😠'
+    typeset -g POWERLEVEL9K_KUBECONTEXT_STAGE_VISUAL_IDENTIFIER_EXPANSION='☸️ '
     typeset -g POWERLEVEL9K_KUBECONTEXT_STAGE_CONTENT_EXPANSION='${P9K_CONTENT}'
     typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
         '*next-infra*' INFRA    # These values are examples that are unlikely
@@ -1558,7 +1558,7 @@
   #   - always:   Trim down prompt when accepting a command line.
   #   - same-dir: Trim down prompt when accepting a command line unless this is the first command
   #               typed after changing current working directory.
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=same-dir
 
   # Instant prompt mode.
   #
