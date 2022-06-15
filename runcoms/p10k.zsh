@@ -1147,7 +1147,7 @@
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
   # Show kubecontext only when the the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show kubecontext.
-  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='cilium|kubectl|helm|kubens|kubectx|oc|popeye|istioctl|kogito|k9s|helmfile|stern|kpoof'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='manage*|deploy.sh|cilium|kubectl|helm|kubens|kubectx|oc|popeye|istioctl|kogito|k9s|helmfile|stern|kpoof'
 
   # Kubernetes context classes for the purpose of using different colors, icons and expansions with
   # different contexts.

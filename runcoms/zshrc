@@ -38,12 +38,15 @@ PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/usr/local/Cellar/node/17.2.0/bin:$PATH"
 # java
 PATH="/usr/local/opt/openjdk/bin:$PATH"
-CPPFLAGS="-I/usr/local/opt/openjdk/include"
+# CPPFLAGS="-I/usr/local/opt/openjdk/include"
 # lazydocker
 PATH="/usr/local/Cellar/lazydocker/0.12/bin:$PATH"
 # openssl
-#PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-PATH="/usr/local/opt/openssl@3/bin:$PATH"
+PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+LDFLAGS="-L/usr/local/opt/openssl@1/lib"
+CPPFLAGS="-I/usr/local/opt/openssl@1/include"
+
+#PATH="/usr/local/opt/openssl@3/bin:$PATH"
 # gnu grep
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 # coreutils
@@ -121,6 +124,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias mo='molecule'
 alias ping='ping -c3'
 alias vim="lvim"
+alias date="/usr/local/opt/coreutils/bin/gdate"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
