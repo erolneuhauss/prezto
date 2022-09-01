@@ -18,6 +18,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export USER=${USER:l}
+
 HISTFILE="${HISTFILE:-${ZDOTDIR:-$HOME}/.zsh_history}"  # The path to the history file.
 HISTSIZE=100000                   # The maximum number of events to save in the internal history.
 SAVEHIST=100000                   # The maximum number of events to save in the history file.
@@ -33,7 +35,9 @@ PATH=~/.local/bin:~/Library/Python/3.8/bin/:$PATH
 # Curl 7.80
 PATH="/usr/local/opt/curl/bin:$PATH"
 # GNU implementation
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 # bash-language-server
 PATH="/usr/local/Cellar/node/17.2.0/bin:$PATH"
 # java
@@ -47,8 +51,6 @@ LDFLAGS="-L/usr/local/opt/openssl@1/lib"
 CPPFLAGS="-I/usr/local/opt/openssl@1/include"
 
 #PATH="/usr/local/opt/openssl@3/bin:$PATH"
-# gnu grep
-PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 # coreutils
 PATH="/usr/local/opt/coreutils/bin:$PATH"
 
@@ -56,7 +58,6 @@ PATH="/usr/local/opt/coreutils/bin:$PATH"
 # switch between cli tool versions with asdf
 # asdf plugin add kubectl && asdf install kubectl 1.18.19 && asdf global kubectl 1.18.19
 source /usr/local/opt/asdf/libexec/asdf.sh
-source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
 # KUBERNETES
 export KUBECONFIG="${HOME}/.kube/config"
@@ -80,7 +81,8 @@ alias kctx=kubectx
 alias kprod="kubectx next-prod"
 alias kstage="kubectx next-stage"
 alias kinfra="kubectx next-infra"
-alias kkind="kubectx kind-stage"
+alias kene="kubectx arn:aws:eks:eu-central-1:198523746074:cluster/eneuhaus"
+alias kaha="kubectx arn:aws:eks:eu-central-1:198523746074:cluster/ahantsch"
 alias kns=kubens
 alias kcnc="kubectl run --rm --restart Never --stdin --tty busybox --image busybox -- nc -z -v -w1 "
 alias kcwget="kubectl run --rm --restart Never --stdin --tty busybox --image busybox -- wget --spider --timeout=1 "
@@ -91,7 +93,7 @@ function kube-toggle() {
   if (( ${+POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND} )); then
     unset POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND
   else
-    POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|oc|istioctl|kogito|k9s|helmfile|fluxctl|stern'
+    POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|oc|istioctl|kogito|k9s|helmfile|flux|stern'
   fi
   p10k reload
   if zle; then
@@ -102,6 +104,8 @@ function kube-toggle() {
 
 zle -N kube-toggle
 bindkey '^]' kube-toggle  # ctrl-] to toggle kubecontext in powerlevel10k prompt
+bindkey '^K' kill-line
+bindkey '^A' vi-beginning-of-line
 
 source <(yq shell-completion zsh)
 source <(chezmoi completion zsh)
@@ -124,6 +128,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias mo='molecule'
 alias ping='ping -c3'
 alias vim="lvim"
+alias vimdiff="lvim -d"
 alias date="/usr/local/opt/coreutils/bin/gdate"
 
 # FZF
@@ -150,7 +155,8 @@ alias vf='lvim -o `f`'
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
 alias d='fasd -d'        # directory
-alias sd='fasd -sid'     # interactive directory selection
+# breaks with sd as alternative to sed
+# alias sd='fasd -sid'     # interactive directory selection
 alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
