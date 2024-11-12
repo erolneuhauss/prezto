@@ -78,10 +78,10 @@ source <(minikube completion zsh | sed --expression='s/aliashash\["\([a-z]*\)"\]
 ec2list='aws ec2 describe-instances --no-cli-pager --query "Reservations[*].Instances[*].[InstanceId,InstanceType,join('\'','\'',Tags[?Key=='\''Name'\''].Value),State.Name] | [] | sort_by(@, &[2])" --output table'
 alias exdo='export do=("--dry-run=client" "--output=yaml")'
 alias k=kubectl
-alias kcnc="kubectl run --rm --restart Never --stdin --tty busybox --image busybox -- nc -z -v -w1 "
+alias kcnc="kubectl run --rm --restart Never --stdin --tty busybox --image public.ecr.aws/docker/library/busybox:glibc -- nc -z -v -w1 "
 alias kctx=kubectx
-alias kcwget="kubectl run --rm --restart Never --stdin --tty busybox --image busybox -- wget --spider --timeout=1 "
 alias kinfra="kubectx next-infra"
+alias kcwget="kubectl run --rm --restart Never --stdin --tty busybox --image public.ecr.aws/docker/library/busybox:glibc -- wget --spider --timeout=1 "
 alias kns=kubens
 alias kprod="kubectx next-prod"
 alias kstage="kubectx next-stage"
