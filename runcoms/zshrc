@@ -98,8 +98,8 @@ function kube-toggle() {
 
 zle -N kube-toggle
 bindkey '^]' kube-toggle  # ctrl-] to toggle kubecontext in powerlevel10k prompt
-bindkey '^K' kill-line
-bindkey '^A' vi-beginning-of-line
+bindkey '^A' vi-beginning-of-line # go to beginning of line in normal mode
+bindkey '^K' kill-line # delete line after cursor in normal mode
 
 source <(yq shell-completion zsh)
 source <(chezmoi completion zsh)
