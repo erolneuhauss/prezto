@@ -119,6 +119,7 @@ alias tfaa='tfa -auto-approve'
 alias tfda='tfd -auto-approve'
 alias fuck="fuck -y"
 alias ll='exa -l'
+alias la='exa -la'
 alias lla='exa -la'
 alias llfu='exa -bghHliS'
 alias lll='exa -l | less'
