@@ -169,7 +169,7 @@ bindkey '^A' vi-beginning-of-line # go to beginning of line in normal mode
 bindkey '^K' kill-line # delete line after cursor in normal mode
 
 source <(yq shell-completion zsh)
-source <(chezmoi completion zsh)
+# source <(chezmoi completion zsh)
 eval $(thefuck --alias)
 
 # MIXED ALIASES
@@ -178,8 +178,8 @@ alias ap='ansible-playbook'
 # alias clip='gpaste-client'
 # alias clipo='gpaste-client --oneline | bat'
 alias lg="lazygit"
-alias tfaa='tfa -auto-approve'
-alias tfda='tfd -auto-approve'
+# alias tfaa='tfa -auto-approve'
+# alias tfda='tfd -auto-approve'
 alias fuck="fuck -y"
 alias ll='exa -l'
 alias la='exa -la'
