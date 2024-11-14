@@ -1,3 +1,5 @@
+# zmodload zsh/zprof # https://www.bigbinary.com/blog/zsh-profiling
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -173,3 +175,5 @@ if [ -f '/Users/ENeuhaus/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ENeuha
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ENeuhaus/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ENeuhaus/google-cloud-sdk/completion.zsh.inc'; fi
+
+# zprof # https://www.bigbinary.com/blog/zsh-profiling
