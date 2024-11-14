@@ -31,6 +31,14 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 PATH=~/.local/bin:$PATH
 # with rye installed python modules, such as podman-compose
 PATH=~/.venv/bin:$PATH
+
+# setting podman variables did not work out
+# maybe it is executed in a linux virtual machine (?)
+# PODMAN_COMPOSE_PROVIDER=~/.venv/bin/podman-compose
+# PODMAN_COMPOSE_WARNING_LOGS=false
+# therefore set them here
+# $XDG_CONFIG_HOME/containers/containers.conf
+
 PATH=~/.local/share/nvim/mason/bin:$PATH
 # Curl 7.80
 PATH="/usr/local/opt/curl/bin:$PATH"
