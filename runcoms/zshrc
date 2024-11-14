@@ -73,7 +73,7 @@ compinit
 source <(kubectl completion zsh)
 source <(helm completion zsh)
 # https://github.com/kubernetes/minikube/issues/11348
-source <(minikube completion zsh | sed --expression='s/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g')
+# source <(minikube completion zsh | sed --expression='s/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g')
 
 # source <(flux completion zsh)
 # source <(kustomize completion zsh)
