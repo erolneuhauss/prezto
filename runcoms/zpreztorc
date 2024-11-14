@@ -31,9 +31,11 @@ zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto-contrib
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'alias-tips' \
+  'command-not-found' \
   'environment' \
   'terminal' \
   'editor' \
+  'helm' \
   'history' \
   'directory' \
   'git' \
