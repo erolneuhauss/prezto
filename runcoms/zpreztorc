@@ -159,6 +159,8 @@ zstyle ':prezto:module:history' savehist 100000
 
 # CHANGE due STARSHIP PROMT
 zstyle ':prezto:module:prompt' theme 'powerlevel10k'
+# # Tell prezto we can manage this prompt
+# zstyle ':prezto:module:prompt' managed 'yes'
 
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
