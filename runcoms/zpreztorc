@@ -30,6 +30,7 @@ zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto-contrib
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
+  'alias-tips' \
   'environment' \
   'terminal' \
   'editor' \
@@ -48,6 +49,8 @@ zstyle ':prezto:load' pmodule \
   'terraform' \
   'history-substring-search' \
   'prompt'
+
+zstyle ":prezto:module:alias-tips" text "Alias tip: "
 
 #
 # Autosuggestions
