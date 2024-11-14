@@ -220,7 +220,9 @@ export FZF_DEFAULT_OPTS="
 alias f='fasd -f'        # file
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
-alias d='fasd -d'        # directory
+# WARN: conflicts with ~/.zprezto/modules/directory's alias d=dirv -s
+# alias d='fasd -d'        # directory
+
 # breaks with sd as alternative to sed
 # alias sd='fasd -sid'     # interactive directory selection
 alias sf='fasd -sif'     # interactive file selection
