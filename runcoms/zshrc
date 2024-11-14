@@ -221,6 +221,7 @@ alias f='fasd -f'        # file
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
 # WARN: conflicts with ~/.zprezto/modules/directory's alias d=dirv -s
+# therefore commented out
 # alias d='fasd -d'        # directory
 
 # breaks with sd as alternative to sed
