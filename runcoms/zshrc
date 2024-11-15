@@ -69,7 +69,7 @@ export KUBECONFIG="${HOME}/.kube/config"
 # eksctl completion zsh > ~/.zsh/completion/_eksctl
 # fpath=($fpath ~/.zsh/completion)
 
-() {
+mycomp() {
   setopt local_options
 
   local zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
@@ -127,6 +127,8 @@ export KUBECONFIG="${HOME}/.kube/config"
 
   fi
 }
+
+mycomp
 
 source <(kubectl completion zsh)
 source <(helm completion zsh)
