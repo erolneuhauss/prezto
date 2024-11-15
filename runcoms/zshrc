@@ -210,6 +210,9 @@ export FZF_DEFAULT_OPTS="
 --bind 'ctrl-e:execute(echo {+} | xargs -o lvim)'
 --bind 'ctrl-v:execute(code {+})'
 "
+
+export MOAR='-quit-if-one-screen'
+
 #alias f='fzf'
 # https://github.com/clvv/fasd
 alias f='fasd -f'        # file
