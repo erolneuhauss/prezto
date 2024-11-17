@@ -171,6 +171,8 @@ eval $(thefuck --alias)
 
 # MIXED ALIASES
 alias ap='ansible-playbook'
+# bat uses less as pager. Switching to moar as default pager conflicts
+alias cat='bat --style="plain" --paging=never'
 # GNOME-specific
 # alias clip='gpaste-client'
 # alias clipo='gpaste-client --oneline | bat'
