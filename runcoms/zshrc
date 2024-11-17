@@ -177,6 +177,7 @@ alias cat='bat --style="plain" --paging=never'
 # alias clip='gpaste-client'
 # alias clipo='gpaste-client --oneline | bat'
 alias lg="lazygit"
+alias gdis="git restore"
 # alias tfaa='tfa -auto-approve'
 # alias tfda='tfd -auto-approve'
 alias fuck="fuck -y"
