@@ -180,13 +180,22 @@ alias lg="lazygit"
 # alias tfaa='tfa -auto-approve'
 # alias tfda='tfd -auto-approve'
 alias fuck="fuck -y"
-alias ll='exa -l'
-alias la='exa -la'
-alias lla='exa -la'
-alias llfu='exa -bghHliS'
-alias lll='exa -l | moar'
-alias llt='exa -T'
-alias lltr='exa -l -s modified'
+
+alias ls='eza --icons=always'
+alias l='ls --almost-all --oneline' # ls -1A        # Lists in one column, hidden files.
+alias ll='ls --long'
+alias llg='ll --git'
+alias la='ll --all'
+alias lm='la | "$PAGER"' # Lists human readable sizes, hidden files through pager
+alias lld='ll --only-dirs'
+alias lk='ll --sort size'        # Lists sorted by size, largest last.
+alias lkr='ll --sort size --reverse'
+alias lt='ll --sort time'        # Lists sorted by date, most recent last.
+alias ltr='ll --sort time --reverse'
+alias tree1='ll --tree --level 2'
+alias tree2='ll --tree --level 3'
+alias tree3='ll --tree --level 4'
+
 alias myip="curl http://ipecho.net/plain; echo"
 alias mo='molecule'
 alias ping='ping -c3'
@@ -197,6 +206,7 @@ alias cg="/Users/ENeuhaus/.local/bin/clonegit.sh"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# "ç" for macOS <option-c>
 bindkey "ç" fzf-cd-widget
 export FZF_DEFAULT_COMMAND="fd --hidden --no-ignore-vcs --follow --exclude '.git' --exclude 'node_modules'"
 export FZF_DEFAULT_OPTS="
