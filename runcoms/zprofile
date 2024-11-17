@@ -24,7 +24,9 @@ if [[ -z "$VISUAL" ]]; then
   export VISUAL='lvim'
 fi
 if [[ -z "$PAGER" ]]; then
-  export PAGER='moar'
+  export PAGER='bat'
+  export DELTA_PAGER='less'
+  export BAT_PAGER='less'
 fi
 
 #
@@ -78,6 +80,10 @@ fi
 
 if [ -x /usr/local/bin/lazygit ]; then
   export XDG_CONFIG_HOME="$HOME/.config"
+fi
+
+if [ -x /usr/local/bin/eza ]; then
+  export EZA_CONFIG_DIR="$XDG_CONFIG_HOME/eza"
 fi
 
 source "$HOME/.rye/env"
