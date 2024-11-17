@@ -22,6 +22,9 @@ fi
 # Customize to your needs...
 export USER=${USER:l}
 
+export MANPATH="/usr/local/share/man"
+export MANPATH="$HOME/.local/share/man:$MANPATH"
+
 eval "$(direnv hook zsh)"
 PATH=~/.local/bin:$PATH
 # with rye installed python modules, such as podman-compose
