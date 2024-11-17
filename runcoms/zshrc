@@ -51,6 +51,8 @@ PATH="/usr/local/opt/openssl@3/bin:$PATH"
 LDFLAGS="-L/usr/local/opt/openssl@1/lib"
 CPPFLAGS="-I/usr/local/opt/openssl@1/include"
 
+PATH="/usr/local/opt/man-db/libexec/bin:$PATH"
+
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # coreutils
