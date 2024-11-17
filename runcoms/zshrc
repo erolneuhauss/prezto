@@ -202,7 +202,10 @@ alias ping='ping -c3'
 alias vim="lvim"
 alias vimdiff="lvim -d"
 alias date="/usr/local/opt/coreutils/bin/gdate"
-alias cg="/Users/ENeuhaus/.local/bin/clonegit.sh"
+
+cg() {
+  source /Users/ENeuhaus/.local/bin/clonegit.sh "$1"
+}
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
