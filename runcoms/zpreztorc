@@ -209,10 +209,10 @@ zstyle ':prezto:module:prompt' managed 'yes'
 # By default, only the main highlighter is enabled.
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
-  'brackets' \
-  'line' \
-  'cursor' \
-  'root'
+  'brackets'
+  # 'line' \
+  # 'cursor' \
+  # 'root'
   # 'pattern' \
 #
 # Set syntax highlighting styles.
