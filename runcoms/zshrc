@@ -233,7 +233,8 @@ export FZF_DEFAULT_OPTS="
 "
 
 export MOAR='-quit-if-one-screen'
-
+alias sa='alias | rg -i'
+export GREP_COLORS='mt=31;40'            # BSD.
 #alias f='fzf'
 # https://github.com/clvv/fasd
 alias f='fasd -f'        # file
