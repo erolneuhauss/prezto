@@ -176,6 +176,29 @@ eval $(thefuck --alias)
 alias ap='ansible-playbook'
 # bat uses less as pager. Switching to moar as default pager conflicts
 alias cat='bat --style="plain" --paging=never'
+
+# ~/.zshenv or ~/.zpreztorc
+# Determine workplace location and number of displays
+current_ssid=$(networksetup -getairportnetwork en0 | awk -F ': ' '{print $2}')
+external_monitor_connected=$(system_profiler SPDisplaysDataType | grep -i "Resolution" | wc -l)
+
+# Use a case statement to set WORKPLACE based on SSID
+case "$current_ssid" in
+    "OBI")
+        export WORKPLACE="office"
+        ;;
+    'FRITZ!Box 6690 QH')
+        export WORKPLACE="home"
+        ;;
+    *)
+        export WORKPLACE="unknown"
+        ;;
+esac
+
+# Override WORKPLACE to mobile if only internal monitor is connected
+[ "$external_monitor_connected" -eq 1 ] && export WORKPLACE="mobile"
+
+alias cm="chezmoi --config $HOME/.config/chezmoi/chezmoi.${WORKPLACE:-unknown}.toml"
 # GNOME-specific
 # alias clip='gpaste-client'
 # alias clipo='gpaste-client --oneline | bat'
