@@ -198,9 +198,30 @@ esac
 # Override WORKPLACE to mobile if only internal monitor is connected
 [ "$external_monitor_connected" -eq 1 ] && export WORKPLACE="mobile"
 
+# https://www.chezmoi.io/
 alias cm="chezmoi --config $HOME/.config/chezmoi/chezmoi.${WORKPLACE:-unknown}.toml"
+# Status
 alias cmd="cm diff"
-alias cma="cm apply"
+alias cmst="cm status"
+alias cmdoc="cm doctor"
+# Editing source
+alias cma="cm add"
+alias cmr="cm re-add"
+alias cme="cm edit"
+alias cmea="cm edit --apply"
+alias cmcd="cm cd"
+# Updating target
+alias cmap="cm apply"
+alias cmup="cm update"
+alias cmug="cm upgrade"
+# git
+alias cmgws="cm git status"
+alias cmgwd="cm git diff"
+alias cmgia="cm git add"
+alias cmgcm="cm git -- commit -m"
+alias cmgp="cm git push"
+alias cmgRl="cm git -- remote --verbose"
+
 # GNOME-specific
 # alias clip='gpaste-client'
 # alias clipo='gpaste-client --oneline | bat'
