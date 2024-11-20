@@ -230,6 +230,7 @@ alias mo='molecule'
 alias ping='ping -c3'
 alias vim="lvim"
 alias vimdiff="lvim -d"
+alias nvimdiff="lvim -d"
 alias date="/usr/local/opt/coreutils/bin/gdate"
 
 cg() {
