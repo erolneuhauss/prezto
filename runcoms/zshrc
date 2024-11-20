@@ -199,6 +199,8 @@ esac
 [ "$external_monitor_connected" -eq 1 ] && export WORKPLACE="mobile"
 
 alias cm="chezmoi --config $HOME/.config/chezmoi/chezmoi.${WORKPLACE:-unknown}.toml"
+alias cmd="cm diff"
+alias cma="cm apply"
 # GNOME-specific
 # alias clip='gpaste-client'
 # alias clipo='gpaste-client --oneline | bat'
