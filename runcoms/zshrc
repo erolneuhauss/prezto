@@ -1,5 +1,6 @@
+#!/usr/bin/env zsh
 # Disable SC1091 for the entire script
-# shellcheck disable=SC1091
+# shellcheck disable=SC1091,SC2296
 #
 # zmodload zsh/zprof # https://www.bigbinary.com/blog/zsh-profiling
 
