@@ -1,3 +1,4 @@
+# ~/.zprezto/runcoms/path.zsh
 
 PATH=~/.local/bin:$PATH
 # with rye installed python modules, such as podman-compose
@@ -27,4 +28,3 @@ PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # coreutils
 PATH="/usr/local/opt/coreutils/bin:$PATH"
-
