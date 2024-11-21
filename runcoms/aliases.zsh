@@ -40,6 +40,14 @@ alias gdis="git restore"
 # alias tfda='tfd -auto-approve'
 alias fuck="fuck -y"
 
+alias ec2list='aws ec2 describe-instances --no-cli-pager --query "Reservations[*].Instances[*].[InstanceId,InstanceType,join('\'','\'',Tags[?Key=='\''Name'\''].Value),State.Name] | [] | sort_by(@, &[2])" --output table'
+alias exdo='export do=("--dry-run=client" "--output=yaml")'
+alias k=kubectl
+alias kcnc="kubectl run --rm --restart Never --stdin --tty busybox --image public.ecr.aws/docker/library/busybox:glibc -- nc -z -v -w1 "
+alias kctx=kubectx
+alias kcwget="kubectl run --rm --restart Never --stdin --tty busybox --image public.ecr.aws/docker/library/busybox:glibc -- wget --spider --timeout=1 "
+alias kns=kubens
+
 alias ls='eza --icons=always --color=always --no-user --no-permissions'
 alias l='ls --almost-all --oneline' # ls -1A        # Lists in one column, hidden files.
 alias ll='ls --long'
