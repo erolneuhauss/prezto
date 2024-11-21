@@ -21,6 +21,3 @@ if [ -f '/Users/ENeuhaus/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ENeuha
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ENeuhaus/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ENeuhaus/google-cloud-sdk/completion.zsh.inc'; fi
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
