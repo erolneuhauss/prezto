@@ -1,3 +1,6 @@
+# Disable SC1091 for the entire script
+# shellcheck disable=SC1091
+#
 # zmodload zsh/zprof # https://www.bigbinary.com/blog/zsh-profiling
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -20,17 +23,17 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-source ~/.zprezto/runcoms/path.zsh
-source ~/.zprezto/runcoms/exports.zsh
-source ~/.zprezto/runcoms/functions.zsh
-source ~/.zprezto/runcoms/aliases.zsh
-source ~/.zprezto/runcoms/external.zsh
+source "$HOME/.zprezto/runcoms/path.zsh"
+source "$HOME/.zprezto/runcoms/exports.zsh"
+source "$HOME/.zprezto/runcoms/functions.zsh"
+source "$HOME/.zprezto/runcoms/aliases.zsh"
+source "$HOME/.zprezto/runcoms/external.zsh"
 
 # recompile_zcompdump()
 autoload -Uz compinit
 compinit -d "${ZDOTDIR:-$HOME}/.zcompdump"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
 
 # zprof # https://www.bigbinary.com/blog/zsh-profiling
