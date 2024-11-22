@@ -30,9 +30,6 @@ source "$HOME/.zprezto/runcoms/external.zsh"
 source "$HOME/.zprezto/runcoms/aliases.zsh"
 source "$HOME/.zprezto/runcoms/keybindings.zsh"
 
-# Determine workplace location and number of displays
-source "$HOME/.profile"
-
 # recompile_zcompdump()
 autoload -Uz compinit
 compinit -d "${ZDOTDIR:-$HOME}/.zcompdump"
