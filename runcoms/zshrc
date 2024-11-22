@@ -27,6 +27,11 @@ source "$HOME/.zprezto/runcoms/path.zsh"
 source "$HOME/.zprezto/runcoms/exports.zsh"
 source "$HOME/.zprezto/runcoms/functions.zsh"
 source "$HOME/.zprezto/runcoms/external.zsh"
+
+# helm, kubectl, yq
+# Manual update required, e.g. (kubectl completion zsh > "$HOME/.zprezto-contrib/my-completion/_kubectl")
+fpath=($fpath "$HOME/.zprezto-contrib/my-completion")
+
 source "$HOME/.zprezto/runcoms/aliases.zsh"
 source "$HOME/.zprezto/runcoms/keybindings.zsh"
 
