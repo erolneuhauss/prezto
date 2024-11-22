@@ -24,11 +24,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export USER=${USER:l}
 source "$HOME/.zprezto/runcoms/path.zsh"
 source "$HOME/.zprezto/runcoms/exports.zsh"
 source "$HOME/.zprezto/runcoms/functions.zsh"
-source "$HOME/.zprezto/runcoms/aliases.zsh"
 source "$HOME/.zprezto/runcoms/external.zsh"
+source "$HOME/.zprezto/runcoms/aliases.zsh"
+source "$HOME/.zprezto/runcoms/keybindings.zsh"
+
+# Determine workplace location and number of displays
+source "$HOME/.profile"
 
 # recompile_zcompdump()
 autoload -Uz compinit
