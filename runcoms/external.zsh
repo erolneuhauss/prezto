@@ -7,12 +7,14 @@
 # source <(kustomize completion zsh)
 
 eval "$(direnv hook zsh)"
+eval "$(fasd --init auto)"
 # eval "$(thefuck --alias)"
 
 # https://faun.pub/switch-easily-between-multiple-kubernetes-version-on-macos-9d61b9bc8287
 # switch between cli tool versions with asdf
 # asdf plugin add kubectl && asdf install kubectl 1.18.19 && asdf global kubectl 1.18.19
 source /usr/local/opt/asdf/libexec/asdf.sh
+
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
