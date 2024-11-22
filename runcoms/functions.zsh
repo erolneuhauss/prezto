@@ -1,7 +1,7 @@
 # ~/.zprezto/runcoms/functions.zsh
 
 cg() {
-  source ~/.local/bin/clonegit.sh "$1"
+  source "$HOME/.local/bin/clonegit.sh" "${1}"
 }
 
 # zsh doesn't have a builtin help command
