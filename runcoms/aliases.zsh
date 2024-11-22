@@ -72,22 +72,18 @@ alias nvimdiff="lvim -d"
 alias date="/usr/local/opt/coreutils/bin/gdate"
 
 alias sa='alias | rg -i'
-#alias f='fzf'
 # https://github.com/clvv/fasd
-alias f='fasd -f'        # file
-alias a='fasd -a'        # any
-alias s='fasd -si'       # show / search / select
-# WARN: conflicts with ~/.zprezto/modules/directory's alias d=dirv -s
-# therefore commented out
-# alias d='fasd -d'        # directory
 
-# breaks with sd as alternative to sed
+# Fasd comes with some useful aliases by default:
+# alias a='fasd -a'        # any
+# alias s='fasd -si'       # show / search / select
+# alias d='fasd -d'        # directory
+# alias f='fasd -f'        # file
 # alias sd='fasd -sid'     # interactive directory selection
-alias sf='fasd -sif'     # interactive file selection
-alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-alias zz='fasd_cd -d -i' # cd with interactive selection
+# alias sf='fasd -sif'     # interactive file selection
+# alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+# alias zz='fasd_cd -d -i' # cd with interactive selection
+
 alias v='f -e lvim' # quick opening files with vim
 alias m='f -e mplayer' # quick opening files with mplayer
 alias o='a -e open' # quick opening files with open
-
-
