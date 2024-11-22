@@ -22,6 +22,4 @@ export KUBECONFIG="${HOME}/.kube/config"
 export MANPATH="$HOME/.local/share/man:$MANPATH"
 export MANPATH="/usr/local/share/man"
 export MOAR='-quit-if-one-screen'
-export USER=${USER:l}
-
 
