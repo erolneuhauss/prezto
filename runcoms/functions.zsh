@@ -80,3 +80,5 @@ function kube-toggle() {
     zle accept-line
   fi
 }
+
+zle -N kube-toggle
