@@ -35,7 +35,6 @@ fpath=($fpath "$HOME/.zprezto-contrib/my-completion")
 source "$HOME/.zprezto/runcoms/aliases.zsh"
 source "$HOME/.zprezto/runcoms/keybindings.zsh"
 
-# recompile_zcompdump()
 autoload -Uz compinit
 compinit -d "${ZDOTDIR:-$HOME}/.zcompdump"
 
