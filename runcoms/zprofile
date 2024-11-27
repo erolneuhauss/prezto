@@ -26,7 +26,6 @@ fi
 if [[ -z "$PAGER" ]]; then
   export PAGER='bat'
   export DELTA_PAGER='less'
-  export BAT_PAGER='less'
 fi
 
 #
