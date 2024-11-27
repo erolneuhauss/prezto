@@ -48,7 +48,7 @@ alias kctx=kubectx
 alias kcwget="kubectl run --rm --restart Never --stdin --tty busybox --image public.ecr.aws/docker/library/busybox:glibc -- wget --spider --timeout=1 "
 alias kns=kubens
 
-alias ls='eza --icons=always --color=always --no-user --no-permissions'
+alias ls='eza --icons=always --color=always --no-user'
 alias l='ls --almost-all --oneline' # ls -1A        # Lists in one column, hidden files.
 alias ll='ls --long'
 alias llg='ll --git'
