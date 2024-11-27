@@ -11,23 +11,27 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
 fi
 
 # Determine workplace location and number of displays
-current_ssid=$(networksetup -getairportnetwork en0 | awk -F ': ' '{print $2}')
-external_monitor_connected=$(system_profiler SPDisplaysDataType | grep -c "Resolution")
+retrieve_workplace() {
+  current_ssid=$(networksetup -getairportnetwork en0 | awk -F ': ' '{print $2}')
+  external_monitor_connected=$(system_profiler SPDisplaysDataType | grep -c "Resolution")
 
-# Use a case statement to set WORKPLACE based on SSID
-case "$current_ssid" in
-    "OBI")
-        export WORKPLACE="office"
-        ;;
-    'FRITZ!Box 6690 QH')
-        export WORKPLACE="home"
-        ;;
-    *)
-        export WORKPLACE="unknown"
-        ;;
-esac
+  # Use a case statement to set WORKPLACE based on SSID
+  case "$current_ssid" in
+      "OBI")
+          export WORKPLACE="office"
+          ;;
+      'FRITZ!Box 6690 QH')
+          export WORKPLACE="home"
+          ;;
+      *)
+          export WORKPLACE="unknown"
+          ;;
+  esac
 
-# Override WORKPLACE to mobile if only internal monitor is connected
-if [[ "$external_monitor_connected" -eq 1 ]]; then
-  export WORKPLACE="mobile"
-fi
+  # Override WORKPLACE to mobile if only internal monitor is connected
+  if [[ "$external_monitor_connected" -eq 1 ]]; then
+    export WORKPLACE="mobile"
+  fi
+}
+
+retrieve_workplace
