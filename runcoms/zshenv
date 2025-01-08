@@ -12,7 +12,7 @@ fi
 
 # Determine workplace location and number of displays
 retrieve_workplace() {
-  current_ssid=$(networksetup -getairportnetwork en0 | awk -F ': ' '{print $2}')
+  current_ssid=$(ipconfig getsummary en0 | awk -F ' SSID : '  '/ SSID : / {print $2}')
   external_monitor_connected=$(system_profiler SPDisplaysDataType | grep -c "Resolution")
 
   # Use a case statement to set WORKPLACE based on SSID
