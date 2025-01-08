@@ -66,9 +66,9 @@ alias tree3='ll --tree --level 4'
 alias myip="curl http://ipecho.net/plain; echo"
 alias mo='molecule'
 alias ping='ping -c3'
-alias vim="lvim"
-alias vimdiff="lvim -d"
-alias nvimdiff="lvim -d"
+alias vim="nvim"
+alias vimdiff="nvim -d"
+alias nvimdiff="nvim -d"
 alias date="/usr/local/opt/coreutils/bin/gdate"
 
 alias sa='alias | rg -i'
@@ -84,6 +84,6 @@ alias sa='alias | rg -i'
 # alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 # alias zz='fasd_cd -d -i' # cd with interactive selection
 
-alias v='f -e lvim' # quick opening files with vim
+alias v='f -e nvim' # quick opening files with vim
 alias m='f -e mplayer' # quick opening files with mplayer
 alias o='a -e open' # quick opening files with open
